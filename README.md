@@ -1,6 +1,6 @@
 # Mozart Orchestrator
 
-General-purpose orchestration product for vibe coders.
+General-purpose orchestration product
 
 ## Current scope
 
