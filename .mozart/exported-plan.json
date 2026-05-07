@@ -1,0 +1,89 @@
+{
+  "id": "plan_v1",
+  "goal": "Ship the first reusable orchestration engine for vibe coders.",
+  "status": "active",
+  "workspaceId": "workspace_mozart",
+  "globalAcceptanceCriteria": [
+    "The orchestrator can store a durable plan graph.",
+    "The supervisor can choose the next ready task deterministically.",
+    "The project can be extended with stack-specific profiles later."
+  ],
+  "approvalPolicy": {
+    "mode": "auto_safe",
+    "requireApprovalFor": [
+      "deploy",
+      "migration",
+      "live_trading"
+    ],
+    "autoApproveFor": [
+      "read",
+      "search",
+      "planning",
+      "validation"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "task_foundation",
+      "title": "Create domain model",
+      "description": "Define the core plan, task, workspace, and profile contracts.",
+      "type": "planning",
+      "priority": 3,
+      "status": "done",
+      "dependencies": [],
+      "acceptanceCriteria": [
+        "Core orchestration types exist."
+      ],
+      "estimatedScope": 1,
+      "retryCount": 0
+    },
+    {
+      "id": "task_supervisor",
+      "title": "Implement supervisor selection loop",
+      "description": "Pick the next ready task from a plan graph using deterministic rules.",
+      "type": "implementation",
+      "priority": 3,
+      "status": "done",
+      "dependencies": [
+        "task_foundation"
+      ],
+      "acceptanceCriteria": [
+        "A ready task is selected deterministically."
+      ],
+      "estimatedScope": 1,
+      "retryCount": 0
+    },
+    {
+      "id": "task_memory",
+      "title": "Design durable memory layer",
+      "description": "Add memory tiers and artifact references for large-project continuity.",
+      "type": "research",
+      "priority": 2,
+      "status": "ready",
+      "dependencies": [
+        "task_supervisor"
+      ],
+      "acceptanceCriteria": [
+        "Memory contracts are defined."
+      ],
+      "estimatedScope": 2,
+      "retryCount": 0
+    },
+    {
+      "id": "task_ui",
+      "title": "Outline chat and task board UX",
+      "description": "Describe the first visible product surfaces for the orchestrator.",
+      "type": "planning",
+      "priority": 2,
+      "status": "in_progress",
+      "dependencies": [
+        "task_foundation"
+      ],
+      "acceptanceCriteria": [
+        "The first product surfaces are named and scoped."
+      ],
+      "estimatedScope": 3,
+      "retryCount": 0
+    }
+  ]
+}

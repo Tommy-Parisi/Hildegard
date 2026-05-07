@@ -1,0 +1,27 @@
+{
+  "id": "typescript-node",
+  "name": "TypeScript Node Service",
+  "languageHints": ["typescript", "node"],
+  "importantPaths": ["src", "docs"],
+  "ignoredPaths": ["dist", "node_modules"],
+  "commands": [
+    {
+      "id": "npm-check",
+      "name": "Typecheck",
+      "command": "npm run check",
+      "category": "validation",
+      "description": "Run the TypeScript compiler in no-emit mode."
+    },
+    {
+      "id": "npm-build",
+      "name": "Build",
+      "command": "npm run build",
+      "category": "validation",
+      "description": "Compile the TypeScript project."
+    }
+  ],
+  "safetyNotes": [
+    "Safe default for service and product scaffolds.",
+    "Use approval gates before commands that modify deployment environments."
+  ]
+}

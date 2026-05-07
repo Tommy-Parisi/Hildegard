@@ -1,0 +1,386 @@
+{
+  "workspace": {
+    "id": "workspace_mozart",
+    "name": "Mozart",
+    "repoPath": "/Users/tommy/Projects/GotGuessr/Mozart",
+    "profileId": "typescript-node"
+  },
+  "profile": {
+    "id": "typescript-node",
+    "name": "TypeScript Node Service",
+    "languageHints": [
+      "typescript",
+      "node"
+    ],
+    "importantPaths": [
+      "src",
+      "docs"
+    ],
+    "ignoredPaths": [
+      "dist",
+      "node_modules"
+    ],
+    "commands": [
+      {
+        "id": "npm-check",
+        "name": "Typecheck",
+        "command": "npm run check",
+        "category": "validation",
+        "description": "Run the TypeScript compiler in no-emit mode."
+      },
+      {
+        "id": "npm-build",
+        "name": "Build",
+        "command": "npm run build",
+        "category": "validation",
+        "description": "Compile the TypeScript project."
+      }
+    ],
+    "safetyNotes": [
+      "Safe default for service and product scaffolds.",
+      "Use approval gates before commands that modify deployment environments."
+    ]
+  },
+  "plan": {
+    "id": "plan_mozart_starter",
+    "goal": "Understand and begin structured work on Mozart.",
+    "status": "active",
+    "workspaceId": "workspace_mozart",
+    "globalAcceptanceCriteria": [
+      "The repo has an active project profile.",
+      "The initial architecture and workflow are documented in task memory.",
+      "The next implementation-ready task can be selected deterministically."
+    ],
+    "approvalPolicy": {
+      "mode": "auto_safe",
+      "requireApprovalFor": [
+        "deploy",
+        "migration",
+        "live_trading"
+      ],
+      "autoApproveFor": [
+        "read",
+        "search",
+        "planning",
+        "validation"
+      ]
+    },
+    "tasks": [
+      {
+        "id": "task_repo_map",
+        "title": "Map repository structure",
+        "description": "Inspect Mozart and identify the main modules, entrypoints, and important directories.",
+        "type": "research",
+        "priority": 3,
+        "status": "done",
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "Key directories and subsystem boundaries are summarized."
+        ],
+        "estimatedScope": 2,
+        "retryCount": 0
+      },
+      {
+        "id": "task_profile_review",
+        "title": "Review active profile",
+        "description": "Confirm that the TypeScript Node Service profile matches the repo's build and validation workflow.",
+        "type": "planning",
+        "priority": 3,
+        "status": "done",
+        "dependencies": [],
+        "acceptanceCriteria": [
+          "The chosen profile is validated or adjusted."
+        ],
+        "estimatedScope": 1,
+        "retryCount": 0
+      },
+      {
+        "id": "task_seed_plan",
+        "title": "Seed project-specific execution plan",
+        "description": "Break the repo's immediate roadmap into concrete tasks with dependencies and acceptance criteria.",
+        "type": "planning",
+        "priority": 2,
+        "status": "done",
+        "dependencies": [
+          "task_repo_map",
+          "task_profile_review"
+        ],
+        "acceptanceCriteria": [
+          "There is at least one ready implementation or validation task."
+        ],
+        "estimatedScope": 3,
+        "retryCount": 0
+      },
+      {
+        "id": "task_run_validation",
+        "title": "Run baseline validation",
+        "description": "Execute the profile's validation commands to establish the current repo baseline.",
+        "type": "validation",
+        "priority": 2,
+        "status": "done",
+        "dependencies": [
+          "task_profile_review"
+        ],
+        "acceptanceCriteria": [
+          "Baseline validation output is recorded."
+        ],
+        "estimatedScope": 2,
+        "retryCount": 0
+      },
+      {
+        "id": "task_architecture_summary",
+        "title": "Write architecture summary",
+        "description": "Summarize the main subsystems in Mozart, starting from src/bootstrap.ts and the detected manifests.",
+        "type": "research",
+        "priority": 2,
+        "dependencies": [
+          "task_repo_map"
+        ],
+        "acceptanceCriteria": [
+          "The main modules and responsibilities are documented."
+        ],
+        "estimatedScope": 2,
+        "status": "done",
+        "retryCount": 0
+      },
+      {
+        "id": "task_validation_baseline_followup",
+        "title": "Review validation baseline",
+        "description": "Inspect the active profile commands and package.json to capture what currently passes, fails, or is missing.",
+        "type": "validation",
+        "priority": 2,
+        "dependencies": [
+          "task_profile_review",
+          "task_run_validation"
+        ],
+        "acceptanceCriteria": [
+          "Validation outcomes are summarized with follow-up actions."
+        ],
+        "estimatedScope": 2,
+        "status": "done",
+        "retryCount": 0
+      },
+      {
+        "id": "task_first_work_slice",
+        "title": "Define first work slice",
+        "description": "Choose the first implementation-ready slice inside Mozart, starting from src/bootstrap.ts, and break it into concrete subtasks.",
+        "type": "planning",
+        "priority": 2,
+        "dependencies": [
+          "task_architecture_summary",
+          "task_seed_plan"
+        ],
+        "acceptanceCriteria": [
+          "At least one project-specific implementation task is ready."
+        ],
+        "estimatedScope": 3,
+        "status": "done",
+        "retryCount": 0
+      },
+      {
+        "id": "task_impl_src_bootstrap_ts",
+        "title": "Implement first slice in src/bootstrap.ts",
+        "description": "Make the first bounded implementation improvement in src/bootstrap.ts.",
+        "type": "implementation",
+        "priority": 2,
+        "status": "ready",
+        "dependencies": [
+          "task_first_work_slice"
+        ],
+        "acceptanceCriteria": [
+          "A small implementation change is prepared for review."
+        ],
+        "estimatedScope": 3,
+        "retryCount": 0
+      },
+      {
+        "id": "task_review_src_bootstrap_ts",
+        "title": "Review first slice in src/bootstrap.ts",
+        "description": "Review the first implementation slice for src/bootstrap.ts against acceptance criteria.",
+        "type": "review",
+        "priority": 1,
+        "status": "pending",
+        "dependencies": [
+          "task_impl_src_bootstrap_ts"
+        ],
+        "acceptanceCriteria": [
+          "The first implementation slice is reviewed and validated."
+        ],
+        "estimatedScope": 2,
+        "retryCount": 0
+      }
+    ]
+  },
+  "executionHistory": [
+    {
+      "id": "run_1774850277522",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_profile_review",
+      "status": "selected",
+      "summary": "Selected \"Review active profile\" because it is ready, has priority 3, and estimated scope 1.",
+      "timestamp": "2026-03-30T05:57:57.522Z"
+    },
+    {
+      "id": "run_1774850277522_task_profile_review",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_profile_review",
+      "status": "completed",
+      "summary": "Assigned planner worker for planning task \"Review active profile\". Profile review for Mozart using TypeScript Node Service. Detected manifests are consistent with the active profile. Validation commands are configured for this profile. Detected manifests: package.json, tsconfig.json, README.md.",
+      "timestamp": "2026-03-30T05:57:57.522Z"
+    },
+    {
+      "id": "run_1774850277524",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_repo_map",
+      "status": "selected",
+      "summary": "Selected \"Map repository structure\" because it is ready, has priority 3, and estimated scope 2.",
+      "timestamp": "2026-03-30T05:57:57.524Z"
+    },
+    {
+      "id": "run_1774850277524_task_repo_map",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_repo_map",
+      "status": "completed",
+      "summary": "Assigned research worker for research task \"Map repository structure\". Research summary for Mozart: Repository Mozart is currently using the TypeScript Node Service profile. Top-level directories: docs, plans, profiles, src. Top-level files: README.md, package-lock.json, package.json, tsconfig.json. Detected manifests: package.json, tsconfig.json, README.md. Important subsystems: src/bootstrap.ts, src/command-runner.ts, src/domain.ts, src/index.ts, src/orchestrator.ts, src/plan-store.ts, docs/orchestration-plan.md.",
+      "timestamp": "2026-03-30T05:57:57.524Z"
+    },
+    {
+      "id": "run_1774850277526",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_run_validation",
+      "status": "selected",
+      "summary": "Selected \"Run baseline validation\" because it is ready, has priority 2, and estimated scope 2.",
+      "timestamp": "2026-03-30T05:57:57.526Z"
+    },
+    {
+      "id": "run_1774850278765_task_run_validation",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_run_validation",
+      "status": "completed",
+      "summary": "Assigned validation worker for validation task \"Run baseline validation\". npm-check: Executed \"Typecheck\" successfully. npm-build: Executed \"Build\" successfully.",
+      "timestamp": "2026-03-30T05:57:58.765Z"
+    },
+    {
+      "id": "run_1774850278766",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_seed_plan",
+      "status": "selected",
+      "summary": "Selected \"Seed project-specific execution plan\" because it is ready, has priority 2, and estimated scope 3.",
+      "timestamp": "2026-03-30T05:57:58.766Z"
+    },
+    {
+      "id": "run_1774850278767_task_seed_plan",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_seed_plan",
+      "status": "completed",
+      "summary": "Assigned planner worker for planning task \"Seed project-specific execution plan\". Seeded project plan from repo analysis for Mozart.",
+      "timestamp": "2026-03-30T05:57:58.767Z"
+    },
+    {
+      "id": "run_1774850278775",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_architecture_summary",
+      "status": "selected",
+      "summary": "Selected \"Write architecture summary\" because it is ready, has priority 2, and estimated scope 2.",
+      "timestamp": "2026-03-30T05:57:58.775Z"
+    },
+    {
+      "id": "run_1774850278776_task_architecture_summary",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_architecture_summary",
+      "status": "completed",
+      "summary": "Assigned research worker for research task \"Write architecture summary\". Architecture summary for Mozart. Primary profile: typescript-node. Detected manifests: package.json, tsconfig.json, README.md. Likely subsystem entry points: src/bootstrap.ts, src/command-runner.ts, src/domain.ts, src/index.ts, src/orchestrator.ts, src/plan-store.ts, docs/orchestration-plan.md. Top-level directories: docs, plans, profiles, src.",
+      "timestamp": "2026-03-30T05:57:58.776Z"
+    },
+    {
+      "id": "run_1774850278777",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_validation_baseline_followup",
+      "status": "selected",
+      "summary": "Selected \"Review validation baseline\" because it is ready, has priority 2, and estimated scope 2.",
+      "timestamp": "2026-03-30T05:57:58.777Z"
+    },
+    {
+      "id": "run_1774850278777_task_validation_baseline_followup",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_validation_baseline_followup",
+      "status": "completed",
+      "summary": "Assigned validation worker for validation task \"Review validation baseline\". Validation baseline follow-up: Selected \"Run baseline validation\" because it is ready, has priority 2, and estimated scope 2. Assigned validation worker for validation task \"Run baseline validation\". npm-check: Executed \"Typecheck\" successfully. npm-build: Executed \"Build\" successfully.",
+      "timestamp": "2026-03-30T05:57:58.777Z"
+    },
+    {
+      "id": "run_1774850278777",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_first_work_slice",
+      "status": "selected",
+      "summary": "Selected \"Define first work slice\" because it is ready, has priority 2, and estimated scope 3.",
+      "timestamp": "2026-03-30T05:57:58.777Z"
+    },
+    {
+      "id": "run_1774850278778_task_first_work_slice",
+      "planId": "plan_mozart_starter",
+      "taskId": "task_first_work_slice",
+      "status": "completed",
+      "summary": "Assigned planner worker for planning task \"Define first work slice\". Defined the first work slice for Mozart. Recommended focus area: src/bootstrap.ts. Generated concrete implementation and review tasks for the first slice.",
+      "timestamp": "2026-03-30T05:57:58.778Z"
+    }
+  ],
+  "memory": [
+    {
+      "id": "memory_1774850277522_task_profile_review",
+      "kind": "semantic",
+      "taskId": "task_profile_review",
+      "summary": "Profile review for Mozart using TypeScript Node Service. Detected manifests are consistent with the active profile. Validation commands are configured for this profile. Detected manifests: package.json, tsconfig.json, README.md.",
+      "source": "recordProfileReview",
+      "timestamp": "2026-03-30T05:57:57.522Z"
+    },
+    {
+      "id": "memory_1774850277524_task_repo_map",
+      "kind": "semantic",
+      "taskId": "task_repo_map",
+      "summary": "Research summary for Mozart: Repository Mozart is currently using the TypeScript Node Service profile. Top-level directories: docs, plans, profiles, src. Top-level files: README.md, package-lock.json, package.json, tsconfig.json. Detected manifests: package.json, tsconfig.json, README.md. Important subsystems: src/bootstrap.ts, src/command-runner.ts, src/domain.ts, src/index.ts, src/orchestrator.ts, src/plan-store.ts, docs/orchestration-plan.md.",
+      "source": "analyzeRepo",
+      "timestamp": "2026-03-30T05:57:57.524Z"
+    },
+    {
+      "id": "memory_1774850278765_task_run_validation",
+      "kind": "working",
+      "taskId": "task_run_validation",
+      "summary": "npm-check: Executed \"Typecheck\" successfully. npm-build: Executed \"Build\" successfully.",
+      "source": "validationWorker",
+      "timestamp": "2026-03-30T05:57:58.765Z"
+    },
+    {
+      "id": "memory_1774850278767_task_seed_plan",
+      "kind": "episodic",
+      "taskId": "task_seed_plan",
+      "summary": "Seeded project plan from repo analysis for Mozart.",
+      "source": "seedPlanTasks",
+      "timestamp": "2026-03-30T05:57:58.767Z"
+    },
+    {
+      "id": "memory_1774850278776_task_architecture_summary",
+      "kind": "semantic",
+      "taskId": "task_architecture_summary",
+      "summary": "Architecture summary for Mozart. Primary profile: typescript-node. Detected manifests: package.json, tsconfig.json, README.md. Likely subsystem entry points: src/bootstrap.ts, src/command-runner.ts, src/domain.ts, src/index.ts, src/orchestrator.ts, src/plan-store.ts, docs/orchestration-plan.md. Top-level directories: docs, plans, profiles, src.",
+      "source": "recordArchitectureSummary",
+      "timestamp": "2026-03-30T05:57:58.776Z"
+    },
+    {
+      "id": "memory_1774850278777_task_validation_baseline_followup",
+      "kind": "episodic",
+      "taskId": "task_validation_baseline_followup",
+      "summary": "Validation baseline follow-up: Selected \"Run baseline validation\" because it is ready, has priority 2, and estimated scope 2. Assigned validation worker for validation task \"Run baseline validation\". npm-check: Executed \"Typecheck\" successfully. npm-build: Executed \"Build\" successfully.",
+      "source": "validationFollowupWorker",
+      "timestamp": "2026-03-30T05:57:58.777Z"
+    },
+    {
+      "id": "memory_1774850278778_task_first_work_slice",
+      "kind": "episodic",
+      "taskId": "task_first_work_slice",
+      "summary": "Defined the first work slice for Mozart. Recommended focus area: src/bootstrap.ts. Generated concrete implementation and review tasks for the first slice.",
+      "source": "recordFirstWorkSlice",
+      "timestamp": "2026-03-30T05:57:58.778Z"
+    }
+  ]
+}

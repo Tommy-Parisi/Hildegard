@@ -1,0 +1,33 @@
+{
+  "name": "mozart-orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/index.js",
+    "status": "node dist/index.js status",
+    "run-next": "node dist/index.js run-next",
+    "run-until-blocked": "node dist/index.js run-until-blocked",
+    "complete-task": "node dist/index.js complete-task",
+    "list-profiles": "node dist/index.js list-profiles",
+    "use-profile": "node dist/index.js use-profile",
+    "run-validation": "node dist/index.js run-validation",
+    "show-plan": "node dist/index.js show-plan",
+    "load-plan": "node dist/index.js load-plan",
+    "export-plan": "node dist/index.js export-plan",
+    "reset-plan": "node dist/index.js reset-plan",
+    "add-task": "node dist/index.js add-task",
+    "set-task-status": "node dist/index.js set-task-status",
+    "set-task-deps": "node dist/index.js set-task-deps",
+    "bootstrap-repo": "node dist/index.js bootstrap-repo",
+    "analyze-repo": "node dist/index.js analyze-repo",
+    "seed-plan-from-analysis": "node dist/index.js seed-plan-from-analysis",
+    "write-architecture-summary": "node dist/index.js write-architecture-summary",
+    "review-active-profile": "node dist/index.js review-active-profile"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

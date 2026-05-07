@@ -1,0 +1,27 @@
+{
+  "id": "rust-generic",
+  "name": "Rust Repository",
+  "languageHints": ["rust"],
+  "importantPaths": ["src", "crates", "tests", "docs"],
+  "ignoredPaths": ["target", "dist", "node_modules"],
+  "commands": [
+    {
+      "id": "cargo-check",
+      "name": "Cargo Check",
+      "command": "cargo check",
+      "category": "validation",
+      "description": "Run the Rust compiler checks without producing release artifacts."
+    },
+    {
+      "id": "cargo-test",
+      "name": "Cargo Test",
+      "command": "cargo test",
+      "category": "validation",
+      "description": "Run the Rust test suite."
+    }
+  ],
+  "safetyNotes": [
+    "Require explicit approval before enabling autonomous commands that can change production behavior.",
+    "Prefer scoped validation before whole-repo validation for large projects."
+  ]
+}

@@ -1,0 +1,34 @@
+import type { CommandExecutionResult, OrchestrationState, ProjectProfile, RepoAnalysis, SupervisorIterationResult, TaskNode, TaskStatus, WorkspaceBootstrap } from "./domain.js";
+import { CommandRunner } from "./command-runner.js";
+import { FileStateStore } from "./state-store.js";
+import { Supervisor } from "./supervisor.js";
+import { WorkerRunner } from "./workers.js";
+export declare class Orchestrator {
+    private readonly stateStore;
+    private readonly supervisor;
+    private readonly commandRunner;
+    private readonly workerRunner;
+    private readonly lockPath;
+    constructor(stateStore: FileStateStore, supervisor: Supervisor, commandRunner: CommandRunner, workerRunner: WorkerRunner, lockPath: string);
+    initialize(initialState: OrchestrationState): Promise<OrchestrationState>;
+    runNext(): Promise<SupervisorIterationResult>;
+    runUntilBlocked(maxIterations?: number): Promise<SupervisorIterationResult[]>;
+    loadState(): Promise<OrchestrationState>;
+    replacePlan(plan: OrchestrationState["plan"]): Promise<OrchestrationState>;
+    replacePlanAndClearRuntime(plan: OrchestrationState["plan"]): Promise<OrchestrationState>;
+    private replacePlanInternal;
+    setProfile(profile: ProjectProfile): Promise<OrchestrationState>;
+    bootstrapWorkspace(bootstrap: WorkspaceBootstrap): Promise<OrchestrationState>;
+    recordAnalysis(analysis: RepoAnalysis): Promise<OrchestrationState>;
+    recordArchitectureSummary(summary: string): Promise<OrchestrationState>;
+    recordProfileReview(summary: string): Promise<OrchestrationState>;
+    seedPlanTasks(tasks: TaskNode[]): Promise<OrchestrationState>;
+    addTask(task: TaskNode): Promise<OrchestrationState>;
+    updateTaskStatus(taskId: string, status: TaskStatus): Promise<OrchestrationState>;
+    updateTaskDependencies(taskId: string, dependencies: string[]): Promise<OrchestrationState>;
+    completeTask(taskId: string, summary: string): Promise<OrchestrationState>;
+    runValidation(): Promise<CommandExecutionResult[]>;
+    private requireState;
+    private withRunLock;
+    private acquireRunLock;
+}
